@@ -1,0 +1,15 @@
+Step 1: git init 
+
+Step 2 : git add *
+
+Step 3: git commit -m "My Comments "
+
+STEP 4 : git remote add origin https://github.com/shivaramki/Angular_Learning
+
+Step 5 : if Already remote origin exists use this command git remote rm origin 
+
+else
+
+git remote add origin git remote add origin https://github.com/shivaramki/Angular_Learning
+
+Step 6 : git push -u origin master
