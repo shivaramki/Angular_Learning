@@ -52,14 +52,18 @@
 			
 			
 	</div>
+	<li class="list-group-item" ng-repeat="product in store.products">
 		<div class="Panel" ng-show="panel.isselected(3)">
 		<h4>
 			Reviews
 		</h4>
-		<blockquote>
-			None Yet
+		<blockquote ng-repeat="review in product.reviews">
+			<b>Stars: {{review.stars}}</b>
+ {{review.body}}
+ <cite>by: {{review.author}}</cite>
 		</blockquote>
 	</div>
+	</li>
 </section>
 </div>
 

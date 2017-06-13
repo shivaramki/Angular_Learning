@@ -23,7 +23,7 @@ return this.tab===checktab;
  images :
  {
  	full:'photogemsapphire.jpg'
- }
+ },
  reviews: [
  {
  stars: 5,
@@ -34,7 +34,7 @@ return this.tab===checktab;
  stars: 1,
  body: "This product sucks",
  author: "tim@hater.com"
- }
+ }]
 },
 {
 name: 'Glass',
@@ -43,7 +43,18 @@ name: 'Glass',
  CanPurchase:false,
  images:{
  	full:'3ruby.jpg'
- }
+ },
+  reviews: [
+ {
+ stars: 5,
+ body: "oh holly shit ..this product is amazing..!!!!",
+ author: "tim@cook.com"
+ },
+ {
+ stars: 1,
+ body: "I never thought this would be amazing ....wowwwwww",
+ author: "Ronald@hater.com"
+ }]
 }
 ]
 })();
