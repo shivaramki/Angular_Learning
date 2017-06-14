@@ -52,18 +52,47 @@
 			
 			
 	</div>
-	<li class="list-group-item" ng-repeat="product in store.products">
+	
 		<div class="Panel" ng-show="panel.isselected(3)">
 		<h4>
 			Reviews
 		</h4>
 		<blockquote ng-repeat="review in product.reviews">
-			<b>Stars: {{review.stars}}</b>
- {{review.body}}
- <cite>by: {{review.author}}</cite>
-		</blockquote>
-	</div>
-	</li>
+        </blockquote>
+        <form name="reviewForm">
+        <br>
+        <br>
+        <br>
+<div class="dropdown">
+       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Rate The Product
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li class="divider"></li>
+      <li><a href="#">5</a></li>
+    </ul>
+    </div>
+        <br>
+        <br>
+        <br>
+ 
+ <textarea class="form-control" rows="5">
+ 	
+ </textarea>
+<br><br><br>
+ <label>by:</label>
+ <input class="form-control" type="email" />
+ <br><br><br>
+ <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+    </div>
+
+		
+	
+	
 </section>
 </div>
 
