@@ -2,9 +2,12 @@
 <html ng-app="store">
  <head>
  <link rel="stylesheet" type="text/css" href="D:\Development\Angular\Angular_Learning\bootstrap-3.3.7-dist\css\bootstrap.min.css" />
+ <link rel="stylesheet" type="text/css" href="Application.css">
  </head>
  <body ng-controller="storecontroller as store">
 <script type="text/javascript" src="D:\Development\Angular\Angular_Learning\angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 
 <div ng-repeat ="product in store.products">
@@ -49,42 +52,54 @@
 		<blockquote>
 			None Yet
 		</blockquote>
-			
-			
+				
 	</div>
-	
-		<div class="Panel" ng-show="panel.isselected(3)">
-		<h4>
-			Reviews
-		</h4>
-		<blockquote ng-repeat="review in product.reviews">
-        </blockquote>
-        <form name="reviewForm">
-        <br>
-        <br>
-        <br>
-<div class="dropdown">
-       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Rate The Product
+    <div class="Panel" ng-show="panel.isselected(3)">
+	<h4>
+			Reviews:
+	</h4>
+	<blockquote ng-repeat="review in product.reviews">
+    </blockquote>
+    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit=" reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+
+    <blockquote>
+ <b>Stars: {{reviewCtrl.review.stars}}</b>
+ {{reviewCtrl.review.body}}
+ <cite>by: {{reviewCtrl.review.author}}</cite>
+ </blockquote>
+       
+<!-- <div class="dropdown" >
+       <button class="btn btn-default dropdown-toggle"  type="button" id="menu1" data-toggle="dropdown" data-ng-model="reviewCtrl.review.stars">Rate The Product
     <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li class="divider"></li>
-      <li><a href="#">5</a></li>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">4</a></li>
     </ul>
-    </div>
+    </div> -->
+ <select ng-model="reviewCtrl.review.stars" required>
+ <option value="">- Rate the Product -</option>
+ <option value="1">1 star</option>
+ <option value="2">2 stars</option>
+ <option value="3">3 stars</option>
+ <option value="4">4 stars</option>
+ <option value="5">5 stars</option>
+</select>
         <br>
         <br>
         <br>
  
- <textarea class="form-control" rows="5">
+ <textarea class="form-control" rows="5" ng-model="reviewCtrl.review.body" placeholder="Write a short review of the product..." required>
  	
  </textarea>
 <br><br><br>
  <label>by:</label>
- <input class="form-control" type="email" />
+ <input class="ng-dirty ng-invalid" type="email" ng-model="reviewCtrl.review.author" required />
+
+ <br><br><br>
+ <div> reviewForm is {{reviewForm.$valid}} </div>
  <br><br><br>
  <input class="btn btn-primary" type="submit" value="Submit" />
 </form>
