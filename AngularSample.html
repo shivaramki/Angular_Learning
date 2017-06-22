@@ -11,9 +11,12 @@
 <script type="text/javascript" src="app.js"></script>
 
 <div ng-repeat ="product in store.products">
-	<h1> {{product.name}} </h1>
-<h2> ${{product.price}} </h2>
+	<!-- <h1> {{product.name}} </h1>
+<h2> ${{product.price}} </h2> -->
 <!-- <p> {{product.description}} </p> -->
+<product-title>
+	
+</product-title>
 <img ng-src="{{product.images.full}}"></img>
 <br>
 <br>

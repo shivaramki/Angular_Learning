@@ -21,6 +21,12 @@ app.controller('ReviewController',function(){
  // this.review = {};
  };
 	});
+app.directive('productTitle',function(){
+	return {
+		restrict:'E',
+		templateURL:'product-title.html'
+	};
+});
 
 
 	var gems = [{
