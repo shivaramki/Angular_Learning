@@ -1,0 +1,20 @@
+ body, html, .container-fluid {
+         height: 100%;
+    }
+
+ #border{
+ 	
+  border-right:  2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+ }
+.first-column {
+  width: 50%;
+  float: left;
+}
+
+.second-column {
+  width: 50%;
+  float: right;
+
+}
