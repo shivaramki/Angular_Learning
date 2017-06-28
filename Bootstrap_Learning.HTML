@@ -1,75 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="customerOrderDetails">
 <head>
 	<!-- <link rel="stylesheet" type="text/css" href="D:\Development\Angular\Angular_Learning\bootstrap-3.3.7-dist\css\bootstrap.min.css" /> -->
-	<script type="text/javascript" src="D:\Development\Angular\Angular_Learning\angular.min.js"></script>
+	<script type="text/javascript" src="C:\Development\Angular_Learning-master\angular.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="BootstrapStyleSheet.css">
-	<title>BootStrap-Learning</title>
+	<script type="text/javascript" src="C:\Development\Angular_Learning-master\Template\Bootstrap.js"></script>
+	<script type="text/javascript" src="C:\Development\Angular_Learning-master\ui-bootstrap-tpls-2.5.0.min.js"></script>
+		<title>BootStrap-Learning</title>
 </head>
 <body> 
-	<div class="container">
+
+	<div class="container" ng-controller="customerItemsController">
 		<div class="row">
 			<div class="col-md-2">
 
 			</div>
-			<div class="col-md-8" style="border: 2px solid black">
+			<div class="col-md-8">
 
 
 				<br> <br> <br>  
-				<label for="Searchbox">
+				<label for="inputdefault">
 					Customer
 				</label> 
 				<br> 
 
-				<input type="text" name="Searchbox" size="80	">
-				<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">...</button>
-				<br> <br> 
-				<div class="modal fade" id="myModal" role="dialog">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Custom Search</h4>
-							</div>
-							<div class="modal-body">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-6 first-column">
-											 <br>  
-											<label for="Searchbox">
-												Customer
-											</label> 
-											<br> 
-
-											<input type="text" name="Searchbox" size="35">
-											<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">...</button>
-											<br>
-											<br>
-											<form>
-												<select multiple class="form-control" id="sel2" size="35">
-												<option>Foobar </option>
-													<option>barfoo </option>
-													<option>bazfoo </option>
-													<option>bazfoobaz </option>
-													<option>foofoofoo</option>
-												</select>
-											</form>
-										</div>
-										<div class="col-md-6 second-column" >
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search for..." ng-model="searchBoxValue">
+					<span class="input-group-btn">
+						<button class="btn btn-info" type="button"  ng-click="print()">...</button>
+						<!-- data-toggle="modal" data-target="#myModal" -->
+					</span>
 				</div>
+
+				<br> <br> 
+
 			</div>
 			<div class="col-md-2">
 
@@ -80,12 +46,12 @@
 
 			</div>
 			<div class="col-md-8" id="border">
-				<br>
+				
 
-				<label>
+				<label for="Customerorder">
 					Items
 				</label>
-				<table class="table table-bordered">
+				<table class="table table-bordered" id="Customerorder">
 					<col width="80">
 					<col width="400">
 					<col width="80">
@@ -160,5 +126,154 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+	<div class="modal fade" id="myModal" role="dialog" ng-controller="customerHelpsController">
+		<script type="text/ng-template" id="myModalContent.html">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Customer Search</h4>
+					</div>
+					<div class="modal-body">
+
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+
+
+										<label for="inputdefault">
+											Customer
+										</label> 
+										<br> 
+
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Search for...">
+											<span class="input-group-btn">
+												<button class="btn btn-info" type="button">search</button>
+											</span>
+										</div>
+										<br>
+										<br>
+
+
+										<table class="table table-hover">
+											<thead>
+												<tr>
+													<th>
+
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														Foobar
+													</td>
+													<td align="right">
+														<p data-placement="top" data-toggle="tooltip" title="Select"><button class="btn btn-default" data-title="Select"><span class="glyphicon glyphicon-chevron-right"></span></button></p>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														barfoo
+													</td>
+													<td align="right">
+														<p data-placement="top" data-toggle="tooltip" title="Select"><button class="btn btn-default" data-title="Select"><span class="glyphicon glyphicon-chevron-right"></span></button></p>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														bazfoo
+													</td>
+													<td align="right">
+														<p data-placement="top" data-toggle="tooltip" title="Select"><button class="btn btn-default" data-title="Select"><span class="glyphicon glyphicon-chevron-right"></span></button></p>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														bazfoobaz
+													</td>
+													<td align="right">
+														<p data-placement="top" data-toggle="tooltip" title="Select"><button class="btn btn-default" data-title="Select"><span class="glyphicon glyphicon-chevron-right"></span></button></p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+
+										<table class=" table table-striped">
+
+											<tr>
+												<th>
+													Name:
+												</th>
+												<td>Mark</td>
+											</tr>
+											<tr>
+												<th>
+													Address:
+												</th>
+												<td>19,old indian bnak strret ,kariamanickam</td>
+											</tr>
+											<tr>
+												<th>
+													State:
+												</th>
+												<td>Pondicherry</td>
+											</tr>
+											<tr>
+												<th>
+													City:
+												</th>
+												<td>Pondicherry</td>
+											</tr>
+											<tr>
+												<th>
+													Pincode:
+												</th>
+												<td>605106</td>
+											</tr>
+											<tr>
+												<th>
+													Phone:
+												</th>
+												<td>9785089051</td>
+											</tr>
+											<tr>
+												<th>
+													Email:
+												</th>
+												<td>sivarama92@gmail.com</td>
+											</tr>
+										</table>
+										<br>
+										<br>
+										<br>
+
+										<button type="button" class="btn btn-primary btn pull-right">Select</button>
+										<br>
+										<br>
+
+									</div>	
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+							<!-- <div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div> -->
+						</div>
+					</div>
+				</script>
+			</div>
+		</body>
+		</html>
